@@ -26,6 +26,7 @@ class Graph():
 
   def addEdge(self, a, b):
     self.nodes[a][b] = 1
+    self.nodes[b][a] = 1
     pass
 
   # Implements depth first search (travel)
@@ -36,7 +37,8 @@ class Graph():
     q.append(start_node)
     while len(q) > 0:
       x = q.pop(0)
-      visit_callback(x)
+      if visited[x] == 0:
+        visit_callback(x)
       visited[x] = 1
       # travel "children" and add it to list to visit
       for i in range(n):
