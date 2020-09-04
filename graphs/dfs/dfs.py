@@ -35,11 +35,11 @@ class Graph():
     q = []
     q.append(start_node)
     while len(q) > 0:
-      x = q.pop(0)
+      x = q.pop()
       visit_callback(x)
       visited[x] = 1
       # travel "children" and add it to list to visit
-      for i in range(n):
+      for i in range(n - 1, -1, -1):
         if visited[i] == 0 and self.nodes[x][i] == 1:
           q.append(i)
 
