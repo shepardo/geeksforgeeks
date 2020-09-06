@@ -1,4 +1,5 @@
 
+# This implementation uses a adjecency matrix
 
 '''
 Typical input
