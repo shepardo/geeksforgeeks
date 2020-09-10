@@ -1,7 +1,8 @@
 
 # from https://www.geeksforgeeks.org/transitive-closure-of-a-graph-using-dfs/
 # Transitive closure using DFS
-# This solution is O( V ** 2 ).
+# This solution is O( V(E+2V) ), which proportional to V ** 2, unless the E >> V,
+#  then it is probably better the Floyd-Warshall algorithm which is O(V ** 3).
 
 class Graph():
     def __init__(self, v):
@@ -21,7 +22,6 @@ class Graph():
             for j in range(self.v):
                 print('{0} '.format(self.tc[i][j]), end='')
         print()
-        pass
 
     def solve_transitive_closure(self):
         v = self.v
@@ -38,7 +38,6 @@ class Graph():
             for i in range(self.v):
                 self.tc[self.v - v][i] = visited[i]
             v -= 1
-        pass
 
 if __name__ == "__main__":
     v = int(input())
