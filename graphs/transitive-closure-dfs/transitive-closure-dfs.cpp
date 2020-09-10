@@ -1,5 +1,9 @@
 // C++ program to print transitive closure of a graph
-#include<bits/stdc++.h>
+//#include<bits/stdc++.h>
+#include <list>
+#include <iostream>
+#include <string>
+
 using namespace std;
 
 class Graph
@@ -58,7 +62,7 @@ void Graph::transitiveClosure()
 	{
 		for (int j=0; j<V; j++)
 			cout << tc[i][j] << " ";
-		cout << endl; 
+		cout << endl;
 	}
 }
 
@@ -66,6 +70,16 @@ void Graph::transitiveClosure()
 int main()
 {
 	// Create a graph given in the above diagram
+	int n, e;
+	cin >> n;
+	cin >> e;
+	Graph g(n);
+	while (e-- > 0) {
+		int u, v;
+		cin >> u >> v;
+		g.addEdge(u, v);
+	}
+	/*
 	Graph g(4);
 	g.addEdge(0, 1);
 	g.addEdge(0, 2);
@@ -73,7 +87,7 @@ int main()
 	g.addEdge(2, 0);
 	g.addEdge(2, 3);
 	g.addEdge(3, 3);
-
+  */
 	cout << "Transitive closure matrix is \n";
 	g.transitiveClosure();
 

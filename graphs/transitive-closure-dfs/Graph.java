@@ -3,6 +3,7 @@
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 // A directed graph using
 // adjacency list representation
@@ -86,6 +87,18 @@ public class Graph {
 
 		// Create a graph given
 		// in the above diagram
+		Scanner scanner = new Scanner(System.in);
+		int n, e;
+		n = scanner.nextInt();
+		e = scanner.nextInt();
+		Graph g = new Graph(n);
+		while (e-- > 0) {
+			int v, u;
+			v = scanner.nextInt();
+			u = scanner.nextInt();
+			g.addEdge(v, u);
+		}
+		/*
 		Graph g = new Graph(4);
 
 		g.addEdge(0, 1);
@@ -94,6 +107,7 @@ public class Graph {
 		g.addEdge(2, 0);
 		g.addEdge(2, 3);
 		g.addEdge(3, 3);
+		*/
 		System.out.println("Transitive closure " +
 				"matrix is");
 
