@@ -8,6 +8,7 @@ class Graph:
 
 	def __init__(self, vertices):
 		self.V = vertices
+		self.graph = [[0 for j in range(vertices)] for i in range(vertices)]
 
 	# A utility function to print the solution
 	def printSolution(self, reach):
@@ -48,14 +49,39 @@ class Graph:
 
 		self.printSolution(reach)
 
-g= Graph(4)
+	def init_from_external_graph(self, graph):
+		self.graph = graph
 
-graph = [[1, 1, 0, 1],
-		[0, 1, 1, 0],
-		[0, 0, 1, 1],
-		[0, 0, 0, 1]]
+	def get_graph(self):
+		return self.graph
 
-#Print the solution
-g.transitiveClosure(graph)
+	def add_edge(self, u, v):
+		self.graph[u][v] = 1
+
+
+if __name__ == '__main__':
+	'''
+	g= Graph(4)
+	graph = [[1, 1, 0, 1],
+			[0, 1, 1, 0],
+			[0, 0, 1, 1],
+			[0, 0, 0, 1]]
+	'''
+	v = int(input())
+	e = int(input())
+	g = Graph(v)
+	while e > 0:
+		u, v = map(int, input().split(' '))
+		g.add_edge(u, v)
+		e -= 1
+
+	# The Floyd-Warshall needs self links for all nodes
+	for i in range(v):
+		g.add_edge(i, i)
+
+	graph = g.get_graph()
+
+	#Print the solution
+	g.transitiveClosure(graph)
 
 #This code is contributed by Neelam Yadav
