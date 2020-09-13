@@ -14,8 +14,8 @@ class Graph:
 		print ("Following matrix transitive closure of the given graph ")
 		for i in range(self.V):
 			for j in range(self.V):
-				print "%7d\t" %(reach[i][j]),
-			print ""
+				print( "%7d\t" %(reach[i][j]), end='')
+			print("")
 
 
 	# Prints transitive closure of graph[][] using Floyd Warshall algorithm
