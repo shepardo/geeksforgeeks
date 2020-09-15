@@ -16,12 +16,16 @@ class Graph:
         while vertices_pruned:
             vertices_pruned = False
             for i in range(v):
-                if self.degrees[i] < k and self.degrees[k] != 0:
+                if self.degrees[i] < k and self.degrees[i] > 0:
+                    vertices_pruned = True
                     for j in range(v):
-                        vertices_pruned = True
-                        self.graph[i][j] = 0
-                        self.degrees[j] -= 1
-                        self.degrees[i] -= 1
+                        # delete both way edges, since we are using matrix
+                        # adjancency representation for unidirected graph.
+                        if self.graph[i][j] == 1:
+                            self.graph[i][j] = 0
+                            self.graph[j][i] = 0
+                            self.degrees[j] -= 1
+                            self.degrees[i] -= 1
         return
 
     def print_graph(self):
