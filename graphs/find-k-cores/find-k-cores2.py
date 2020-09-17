@@ -83,7 +83,9 @@ class Graph:
 				for i in self.graph[v]:
 					if vDegree[i] >= k:
 						print ("-> " + str(i),end='')
+		print('')
 
+'''
 k = 3;
 g1 = Graph (9);
 g1.addEdge(0, 1)
@@ -119,5 +121,14 @@ g2.addEdge(3, 10)
 g2.addEdge(3, 11)
 g2.addEdge(3, 12)
 g2.printKCores(k)
-
+'''
+v = int(input())
+e = int(input())
+k = int(input())
+g = Graph(v)
+while e > 0:
+    v, u = map(int, input().split(' '))
+    g.addEdge(v, u)
+    e -= 1
+g.printKCores(k)
 # This code is contributed by Neelam Yadav

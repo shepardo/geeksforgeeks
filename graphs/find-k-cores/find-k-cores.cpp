@@ -1,5 +1,9 @@
 // C++ program to find K-Cores of a graph
-#include<bits/stdc++.h> 
+//#include<bits/stdc++.h>
+#include <list>
+#include <iostream>
+#include <vector>
+
 using namespace std;
 
 // This class represents a undirected graph using adjacency
@@ -122,12 +126,14 @@ void Graph::printKCores(int k)
 					cout << " -> " << *itr;
 		}
 	}
+    cout << endl;
 }
 
 // Driver program to test methods of graph class
 int main()
 {
 	// Create a graph given in the above diagram
+/*
 	int k = 3;
 	Graph g1(9);
 	g1.addEdge(0, 1);
@@ -165,6 +171,15 @@ int main()
 	g2.addEdge(3, 11);
 	g2.addEdge(3, 12);
 	g2.printKCores(k);
-
+*/
+    int v, e, k;
+    cin >> v >> e >> k;
+    Graph g(v);
+    while (e--) {
+        int u, v;
+        cin >> u >> v;
+        g.addEdge(u, v);
+    }
+    g.printKCores(k);
 	return 0;
 }

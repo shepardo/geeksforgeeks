@@ -1,4 +1,4 @@
-// Java program to find K-Cores of a graph 
+// Java program to find K-Cores of a graph
 import java.util.*;
 
 class GFG
@@ -128,6 +128,7 @@ class GFG
 	{
 
 		// Create a graph given in the above diagram
+/*
 		int k = 3;
 		Graph g1 = new Graph(9);
 		g1.addEdge(0, 1);
@@ -165,6 +166,20 @@ class GFG
 		g2.addEdge(3, 11);
 		g2.addEdge(3, 12);
 		g2.printKCores(k);
+*/
+        Scanner s = new Scanner(System.in);
+        int v, e, k;
+        v = s.nextInt();
+        e = s.nextInt();
+        k = s.nextInt();
+        Graph g = new Graph(v);
+        while (e-- > 0) {
+            int u, v1;
+            u = s.nextInt();
+            v1 = s.nextInt();
+            g.addEdge(u, v1);
+        }
+        g.printKCores(k);
 	}
 }
 
